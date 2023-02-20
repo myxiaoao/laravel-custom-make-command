@@ -1,0 +1,33 @@
+{
+  "name": "cooper/laravel-custom-make-command",
+  "description": "custom laravel make commands for dev.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "cooper",
+      "email": "myxiaoao@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "laravel/framework": ">=9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cooper\\CustomMake\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Cooper\\CustomMake\\CommandServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
