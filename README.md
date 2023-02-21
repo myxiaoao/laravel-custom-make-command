@@ -15,12 +15,23 @@ composer require cooper/laravel-custom-make-command --dev
 
 ## Usage
 
+> **Note**  
+> Support for sub-folders. 
+
 * make:service
 
 ```bash
 php artisan make:service demo 
 
 // Service [app/Services/DemoService.php] created successfully.
+```
+
+* make:repository
+
+```bash
+php artisan make:repository demo
+
+// Repository [app/Repositories/DemoRepository.php] created successfully.
 ```
 
 ## License

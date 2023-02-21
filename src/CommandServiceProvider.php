@@ -2,6 +2,7 @@
 
 namespace Cooper\CustomMake;
 
+use Cooper\CustomMake\Commands\RepositoryMakeCommand;
 use Cooper\CustomMake\Commands\ServiceMakeCommand;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,6 +13,7 @@ class CommandServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 ServiceMakeCommand::class,
+                RepositoryMakeCommand::class
             ]);
         }
     }
