@@ -10,5 +10,5 @@ class ServiceMakeCommand extends MakeCommand
 
     protected $type = 'Service';
 
-    protected string $dir = 'Services';
+    public static string $dir = 'Services';
 }

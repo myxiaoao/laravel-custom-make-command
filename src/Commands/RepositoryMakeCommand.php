@@ -10,5 +10,5 @@ class RepositoryMakeCommand extends MakeCommand
 
     protected $type = 'Repository';
 
-    protected string $dir = 'Repositories';
+    public static string $dir = 'Repositories';
 }

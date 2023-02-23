@@ -3,6 +3,7 @@
 namespace Cooper\CustomMake;
 
 use Composer\InstalledVersions;
+use Cooper\CustomMake\Commands\ActionMakeCommand;
 use Cooper\CustomMake\Commands\RepositoryMakeCommand;
 use Cooper\CustomMake\Commands\ServiceMakeCommand;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -10,10 +11,13 @@ use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider
 {
+    protected array $folders;
+
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                ActionMakeCommand::class,
                 ServiceMakeCommand::class,
                 RepositoryMakeCommand::class
             ]);
@@ -23,14 +27,10 @@ class CommandServiceProvider extends ServiceProvider
             AboutCommand::add('Custom Make Command', [
                 'Version' => InstalledVersions::getPrettyVersion('cooper/laravel-custom-make-command'),
                 'Created' => function (): string {
-                    $folders = [
-                        'Repositories',
-                        'Services'
-                    ];
-                    $createPaths = collect($folders)
-                        ->filter(fn (string $folder): bool => is_dir(app_path($folder)));
+                    $createPaths = collect($this->folders)
+                        ->filter(fn(string $folder): bool => is_dir(app_path($folder)));
 
-                    if (! $createPaths->count()) {
+                    if (!$createPaths->count()) {
                         return '<fg=green;options=bold>NOT CREATED</>';
                     }
 
@@ -42,5 +42,16 @@ class CommandServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+    }
+
+    public function commands($commands): void
+    {
+        parent::commands($commands);
+
+        if (is_array($commands)) {
+            foreach ($commands as $command) {
+                $this->folders[] = $command::$dir;
+            }
+        }
     }
 }

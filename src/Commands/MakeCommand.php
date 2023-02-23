@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 abstract class MakeCommand extends GeneratorCommand
 {
-    protected string $dir;
+    protected static string $dir;
 
     protected function getStub(): string
     {
@@ -16,7 +16,7 @@ abstract class MakeCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\\' . $this->dir;
+        return $rootNamespace . '\\' . static::$dir;
     }
 
     protected function resolveStubPath($stub): string

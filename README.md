@@ -20,7 +20,7 @@ composer require cooper/laravel-custom-make-command --dev
 
 * make:service
 
-```bash
+```php
 php artisan make:service demo 
 
 // Service [app/Services/DemoService.php] created successfully.
@@ -28,10 +28,18 @@ php artisan make:service demo
 
 * make:repository
 
-```bash
+```php
 php artisan make:repository demo
 
 // Repository [app/Repositories/DemoRepository.php] created successfully.
+```
+
+* make:action
+
+```php
+php artisan make:action demo
+
+// Action [app/Actions/DemoAction.php] created successfully..
 ```
 
 ## License
