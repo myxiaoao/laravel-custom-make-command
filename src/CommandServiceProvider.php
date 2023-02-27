@@ -4,6 +4,7 @@ namespace Cooper\CustomMake;
 
 use Composer\InstalledVersions;
 use Cooper\CustomMake\Commands\ActionMakeCommand;
+use Cooper\CustomMake\Commands\DaoMakeCommand;
 use Cooper\CustomMake\Commands\RepositoryMakeCommand;
 use Cooper\CustomMake\Commands\ServiceMakeCommand;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -19,7 +20,8 @@ class CommandServiceProvider extends ServiceProvider
             $this->commands([
                 ActionMakeCommand::class,
                 ServiceMakeCommand::class,
-                RepositoryMakeCommand::class
+                RepositoryMakeCommand::class,
+                DaoMakeCommand::class
             ]);
         }
 

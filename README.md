@@ -42,6 +42,14 @@ php artisan make:action demo
 // Action [app/Actions/DemoAction.php] created successfully..
 ```
 
+* make:dao
+
+```php
+php artisan make:dao demo
+
+// DAO [app/DAOs/DemoDAO.php] created successfully.
+```
+
 ## License
 
 Laravel Custom Make Command is open-sourced software licensed under [the MIT license](LICENSE.md).
